@@ -1,4 +1,4 @@
-package connections;
+package br.edu.ifgoiano.marketplace.connections;
 
 import javax.annotation.PostConstruct;
 
@@ -30,7 +30,7 @@ public class RabbitMQConnection {
 
 	private Binding binding(Queue queue, DirectExchange directExchange) {
 		// destination, destination type, exchange, routing key, arguments
-		return new Binding(queue.getName(), Binding.DestinationType.EXCHANGE, directExchange.getName(), queue.getName(),
+		return new Binding(queue.getName(), Binding.DestinationType.QUEUE, directExchange.getName(), queue.getName(),
 				null);
 	}
 
