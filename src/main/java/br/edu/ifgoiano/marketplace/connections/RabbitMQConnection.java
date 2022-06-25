@@ -40,6 +40,7 @@ public class RabbitMQConnection {
 		Queue queueReport        = this.queue(RabbitMQConstants.QUEUE_REPORT);
 		Queue queueHeavyProducts = this.queue(RabbitMQConstants.QUEUE_HEAVY_PRODUCTS);
 		Queue queueLightProducts = this.queue(RabbitMQConstants.QUEUE_LIGHT_PRODUCST);
+		Queue queueResponse      = this.queue(RabbitMQConstants.QUEUE_RESPONSE);
 	
 		DirectExchange directExchange = this.directExchange();
 		
@@ -47,12 +48,14 @@ public class RabbitMQConnection {
 		Binding bindingReport        = this.binding(queueReport, directExchange);
 		Binding bindingHeavyProducts = this.binding(queueHeavyProducts, directExchange);
 		Binding bindingLightProducts = this.binding(queueLightProducts, directExchange);
+		Binding bindingResponse      = this.binding(queueResponse, directExchange);
 		
 		// Creating queues
 		this.amqpAdmin.declareQueue(queueSendProducts);
 		this.amqpAdmin.declareQueue(queueReport);
 		this.amqpAdmin.declareQueue(queueHeavyProducts);
 		this.amqpAdmin.declareQueue(queueLightProducts);
+		this.amqpAdmin.declareQueue(queueResponse);
 		
 		// Creating exchange
 		this.amqpAdmin.declareExchange(directExchange);
@@ -62,6 +65,7 @@ public class RabbitMQConnection {
 		this.amqpAdmin.declareBinding(bindingReport);
 		this.amqpAdmin.declareBinding(bindingHeavyProducts);
 		this.amqpAdmin.declareBinding(bindingLightProducts);
+		this.amqpAdmin.declareBinding(bindingResponse);
 	}
 	
 }
