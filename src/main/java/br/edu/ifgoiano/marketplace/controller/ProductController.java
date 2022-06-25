@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.ifgoiano.marketplace.constants.RabbitMQConstants;
-import br.edu.ifgoiano.marketplace.dto.ProductDto;
+import constants.RabbitMQConstants;
+import dto.ProductDto;
 import br.edu.ifgoiano.marketplace.service.RabbitMQService;
 
 @RestController

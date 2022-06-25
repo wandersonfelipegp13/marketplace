@@ -8,7 +8,7 @@ import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Queue;
 import org.springframework.stereotype.Component;
 
-import br.edu.ifgoiano.marketplace.constants.RabbitMQConstants;
+import constants.RabbitMQConstants;
 
 @Component
 public class RabbitMQConnection {
