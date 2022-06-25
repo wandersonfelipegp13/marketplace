@@ -20,11 +20,11 @@ public class ProductController {
 	private RabbitMQService rabbitMQService;
 
 	@PostMapping
-	private ResponseEntity createProduct(@RequestBody ProductDto productDto) {
+	private ResponseEntity<ProductDto> createProduct(@RequestBody ProductDto productDto) {
 		this.rabbitMQService.sendMessage(RabbitMQConstants.QUEUE_SEND_PRODUCTS, productDto);
 		System.out.println(productDto.id + ", " + productDto.name + ", " + productDto.sender + ", "
 				+ productDto.receiver + ", " + productDto.weight);
-		return new ResponseEntity(HttpStatus.OK);
+		return new ResponseEntity<ProductDto>(HttpStatus.OK);
 	}
 
 }
